@@ -26,6 +26,8 @@ Robots:
 1. [Visual Studio Code](https://code.visualstudio.com/docs/remote/containers)
 1. [WSL](https://learn.microsoft.com/de-de/windows/wsl/install)
 2. [Docker](https://docs.docker.com/desktop/install/windows-install/)
+
+    (sometimes you have to install with `pip install docker-compose` [docker-compose](https://docs.docker.com/compose/) as well)
 3. Create a fork of this repository.
 4. Clone the Repository in your WSL environment (`git clone ...`)
 5. Open the repository with `code .` in the repository folder.
