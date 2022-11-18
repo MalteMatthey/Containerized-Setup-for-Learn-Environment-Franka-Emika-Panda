@@ -24,21 +24,31 @@ Robots:
 
 ### local Windows installation
 1. [Visual Studio Code](https://code.visualstudio.com/docs/remote/containers)
-1. [WSL](https://learn.microsoft.com/de-de/windows/wsl/install)
-2. [Docker](https://docs.docker.com/desktop/install/windows-install/)
-
+    
+    1.1. Install the DevContainer extension in VSC (ID: ms-vscode-remote.remote-containers)
+2. [WSL2](https://learn.microsoft.com/de-de/windows/wsl/install) (it needs wsl2 instead of 1)
+3. [Docker](https://docs.docker.com/desktop/install/windows-install/)
+    
     (sometimes you have to install with `pip install docker-compose` [docker-compose](https://docs.docker.com/compose/) as well)
-3. Create a fork of this repository.
-4. Clone the Repository in your WSL environment (`git clone ...`)
-5. Open the repository with `code .` in the repository folder.
-6. Use `ctrl + shift + p` *Remote-Containers: Open in Container* to open the container in a docker environment. You have now all the necessary Tools installed.
+    
+4. Create a fork of this repository.
+5. Clone the Repository in your WSL environment (`git clone ...`)
+
+    5.1. You need to create a ssh key in your wsl (or linux) environment and copy this key to your git.ssc.kit.edu ssh-keys [Explanation](https://git.scc.kit.edu/help/user/ssh.md)
+6. Open the repository with `code .` in the repository folder.
+7. Use `ctrl + shift + p` *Dev-Containers: Open in Container* to open the container in a docker environment. You have now all the necessary Tools installed.
 
 ### on a linux computer (or the computer connected to the real robot)
 
-1. Create a fork of this repository.
-2. Clone the Repository in your WSL environment `git clone ...`
-3. Open the repository with `code .` in the repository folder.
-4. Use `ctrl + shift + p` *Remote-Containers: Open in Container* to open the container in a docker environment. You have now all the necessary Tools installed.
+1. [Visual Studio Code](https://code.visualstudio.com/docs/remote/containers)
+2. [Docker](https://docs.docker.com/engine/install/ubuntu/)
+3. Create a fork of this repository.
+4. Clone the Repository in your environment `git clone ...`
+    
+    4.1. You need to create a ssh key in your wsl (or linux) environment and copy this key to your git.ssc.kit.edu ssh-keys [Explanation](https://git.scc.kit.edu/help/user/ssh.md)
+5. Open the repository with `code .` in the repository folder.
+6. Use `ctrl + shift + p` *Dev-Containers: Open in Container* to open the container in a docker environment. You have now all the necessary Tools installed.
+
 
 ### Functions:
 
@@ -104,6 +114,8 @@ You compile the workspace With `catkin_make` in /workspace/catkin_ws. To use the
 ### problems while cloning the development container in a remote pc
 try if you can clone it in another folder. 
 
+### problem container doesn't start on linux (MIT-Magic Cookie)
+Activating cpu-virtualization might help. 
 
 ### GPU not found
 You can give the container GPU ability with
