@@ -9,8 +9,8 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   rviz
   pluginlib
-  # Other dependecies
   std_msgs
+  topic_tools
 )
 
 catkin_package(
@@ -24,6 +24,7 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
   ${CMAKE_CURRENT_BINARY_DIR}
+  /usr/include/jsoncpp
 )
 
 ## This setting causes Qt's "MOC" generation to happen automatically.
@@ -50,6 +51,7 @@ add_definitions(-DQT_NO_KEYWORDS)
 # Define source file
 set(${PROJECT_NAME}_SRCS
   src/rviz_panel.cpp
+  src/topic_collector.cpp
 )
 
 # Define header file
@@ -83,4 +85,6 @@ add_library(ai_panel
 target_link_libraries(ai_panel
   ${catkin_LIBRARIES}
   ${QT_LIBRARIES}
+  ${topic_tools_LIBRARIES}
+  jsoncpp
 )

@@ -7,6 +7,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QObject>
+#include "rviz-ai-panel/topic_collector.hpp"
 
 /** 
  *  Include header generated from the UI file.
@@ -24,8 +25,7 @@ class Ai_Window;
 }
 QT_END_NAMESPACE
 
-class Ai_Window : public rviz::Panel
-{
+class Ai_Window : public rviz::Panel {
     Q_OBJECT
 
 public:
@@ -40,6 +40,7 @@ private:
     Ui::Ai_Window *ui;                   // Pointer to UI elements
     ros::NodeHandle nh_;                 // ROS NodeHandle
     ros::Publisher text_publisher_;      // ROS Publisher for text messages
+    TopicCollector collector_;
 
 private Q_SLOTS:
     void sendRequest();  // Slot to handle button click for sending requests
