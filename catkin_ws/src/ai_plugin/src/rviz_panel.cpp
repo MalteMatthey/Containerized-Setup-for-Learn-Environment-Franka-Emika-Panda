@@ -1,59 +1,51 @@
-#include "rviz-panel/rviz_panel.hpp"
+#include "rviz-ai-panel/rviz_panel.hpp"
 #include <pluginlib/class_list_macros.hpp>
+#include <std_msgs/String.h>
 
-
-PLUGINLIB_EXPORT_CLASS(rviz_panel::simplePanel, rviz::Panel)
-
-namespace rviz_panel
+Ai_Window::Ai_Window(QWidget *parent)
+    : rviz::Panel(parent)
+    , ui(new Ui::Ai_Window)
 {
-    simplePanel::simplePanel(QWidget * parent)
-    :   rviz::Panel(parent),
-        ui_(std::make_shared<Ui::two_button>())
+    ui->setupUi(this);
+
+    // Initialize ROS Publisher
+    text_publisher_ = nh_.advertise<std_msgs::String>("ai_window_topic", 1);
+
+    // Connect the button with the function
+    connect(ui->pushButton, &QPushButton::clicked, this, &Ai_Window::sendRequest);
+}
+
+Ai_Window::~Ai_Window()
+{
+    delete ui;
+}
+
+void Ai_Window::sendRequest()
+{
+    QString text = ui->textEdit->toPlainText();
+    ui->label->setText("THIS IS JUST PAIN: " + text);
+
+    // Create and send a ROS message
+    std_msgs::String msg;
+    msg.data = text.toStdString();
+    text_publisher_.publish(msg);
+}
+
+// Save user settings (e.g., text field content)
+void Ai_Window::save(rviz::Config config) const
+{
+    rviz::Panel::save(config);
+    config.mapSetValue("Text", ui->textEdit->toPlainText());
+}
+
+// Load user settings
+void Ai_Window::load(const rviz::Config &config)
+{
+    rviz::Panel::load(config);
+    QString text;
+    if (config.mapGetString("Text", &text))
     {
-        // Extend the widget with all attributes and children from UI file
-        ui_->setupUi(this);
-
-        // Define ROS publisher
-        button_1_pub_ = nh_.advertise<std_msgs::Bool>("button_1_topic", 1);
-        button_2_pub_ = nh_.advertise<std_msgs::Bool>("button_2_topic", 1);
-
-        // Declare ROS msg_
-        msg_.data = true;
-
-        connect(ui_->pushButton_1, SIGNAL(clicked()), this, SLOT(button_one()));
-        connect(ui_->pushButton_2, SIGNAL(clicked()), this, SLOT(button_two()));
+        ui->textEdit->setPlainText(text);
     }
-
-
-    void simplePanel::button_one()
-    {
-        ROS_INFO_STREAM("Button one pressed.");
-        this->button_1_pub_.publish(this->msg_);
-    }
-
-
-    void simplePanel::button_two()
-    {
-        ROS_INFO_STREAM("Button two pressed.");
-        this->button_2_pub_.publish(this->msg_);
-    }
-
-
-    /**
-     *  Save all configuration data from this panel to the given
-     *  Config object. It is important here that you call save()
-     *  on the parent class so the class id and panel name get saved.
-     */
-    void simplePanel::save(rviz::Config config) const
-    {
-        rviz::Panel::save(config);
-    }
-
-    /**
-     *  Load all configuration data for this panel from the given Config object.
-     */
-    void simplePanel::load(const rviz::Config & config)
-    {
-        rviz::Panel::load(config);
-    }
-} // namespace rviz_panel
+}
+PLUGINLIB_EXPORT_CLASS(Ai_Window, rviz::Panel)

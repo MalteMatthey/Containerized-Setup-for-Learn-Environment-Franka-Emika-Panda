@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(rviz-panel)
+project(rviz-ai-panel)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -15,7 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
   INCLUDE_DIRS include
-  # LIBRARIES rviz-panel
+  # LIBRARIES rviz-ai-panel
   # CATKIN_DEPENDS roscpp rospy rviz
   # DEPENDS system_lib
 )
@@ -59,7 +59,7 @@ set(${PROJECT_NAME}_HDRS
 
 # Define ui file
 set(${PROJECT_NAME}_UIS
-  resource/simple_panel.ui
+  resource/ai_panel.ui
 )
 
 # Create header from ui file (uic)
@@ -74,13 +74,13 @@ else()
 endif()
 
 ## Add library is needed in order to generate the header file from ui file.
-add_library(simple_panel
+add_library(ai_panel
   ${${PROJECT_NAME}_SRCS}
   ${${PROJECT_NAME}_UIS_H}
   ${${PROJECT_NAME}_MOCS} 
 )
 
-target_link_libraries(simple_panel
+target_link_libraries(ai_panel
   ${catkin_LIBRARIES}
   ${QT_LIBRARIES}
 )

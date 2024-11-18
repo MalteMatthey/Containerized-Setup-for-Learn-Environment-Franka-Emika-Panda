@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>rviz-panel</name>
+  <name>rviz-ai-panel</name>
   <version>0.0.0</version>
-  <description>The rviz-panel package</description>
+  <description>The rviz-ai-panel package</description>
 
-  <author email="jianle001@e.ntu.edu.sg">Bruce Chan Jian Le</author>
-  <maintainer email="jianle001@e.ntu.edu.sg">Bruce Chan Jian Le</maintainer>
+  <author email="xxx@student.kit.edu">XXX</author>
+  <maintainer email="xxx@student.kit.edu">XXX</maintainer>
   <license>MIT</license>
-  <url type="website">https://github.com/BruceChanJianLe/rviz-panel</url>
-
 
   <buildtool_depend>catkin</buildtool_depend>
 

@@ -1,8 +1,8 @@
-<library path="lib/libsimple_panel">
+<library path="lib/libai_panel">
 
-  <class type="rviz_panel::simplePanel" base_class_type="rviz::Panel">
+  <class type="Ai_Window" base_class_type="rviz::Panel">
     <description>
-      A simple panel widget with two buttons.
+      An ai-chat panel to implement an AI natively into RViz.
     </description>
   </class>
 
