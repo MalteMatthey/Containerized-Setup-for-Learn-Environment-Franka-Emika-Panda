@@ -24,7 +24,7 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
   ${CMAKE_CURRENT_BINARY_DIR}
-  /usr/include/jsoncpp
+  /usr/include/nlohmann
 )
 
 ## This setting causes Qt's "MOC" generation to happen automatically.
@@ -48,15 +48,18 @@ endif()
 # e.g. http://muddyazian.blogspot.de/2012/04/getting-qt-app-working-with-boost-using.html
 add_definitions(-DQT_NO_KEYWORDS)
 
-# Define source file
+# Define source files
 set(${PROJECT_NAME}_SRCS
   src/rviz_panel.cpp
   src/topic_collector.cpp
+  src/ai_agent.cpp
 )
 
-# Define header file
+# Define header files
 set(${PROJECT_NAME}_HDRS
   include/${PROJECT_NAME}/rviz_panel.hpp
+  include/${PROJECT_NAME}/topic_collector.hpp
+  include/${PROJECT_NAME}/ai_agent.hpp
 )
 
 # Define ui file
@@ -86,5 +89,4 @@ target_link_libraries(ai_panel
   ${catkin_LIBRARIES}
   ${QT_LIBRARIES}
   ${topic_tools_LIBRARIES}
-  jsoncpp
 )

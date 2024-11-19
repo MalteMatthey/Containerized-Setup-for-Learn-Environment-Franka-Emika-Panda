@@ -1,5 +1,6 @@
 #include "rviz-ai-panel/rviz_panel.hpp"
 #include "rviz-ai-panel/topic_collector.hpp"
+#include "rviz-ai-panel/ai_agent.hpp"
 #include <pluginlib/class_list_macros.hpp>
 #include <std_msgs/String.h>
 #include <QString>
@@ -7,13 +8,18 @@
 #include <QPushButton>
 #include <QTextEdit>
 #include <QLabel>
-
+#include <QDebug>
 #include <QFile>
 #include <QTextStream>
+#include <cstdlib>
+
+// Retrieve API key from environment variable
+QString api_key = QString::fromStdString(std::getenv("AI_AGENT_API_KEY"));
 
 Ai_Window::Ai_Window(QWidget *parent)
     : rviz::Panel(parent)
-    , ui(new Ui::Ai_Window) {
+    , ui(new Ui::Ai_Window)
+    , ai_agent_(api_key.toStdString()) {
     ui->setupUi(this);
 
     // Initialize ROS Publisher
@@ -28,9 +34,7 @@ Ai_Window::~Ai_Window() {
 }
 
 void Ai_Window::sendRequest() {
-    QString text = ui->textEdit->toPlainText();
-
-    // Verwenden Sie die Mitgliedsvariable collector_
+    // Collect ROS topics and messages
     std::vector<std::string> topics = collector_.getTopicNames();
     QString all_messages;
 
@@ -39,7 +43,7 @@ void Ai_Window::sendRequest() {
         all_messages += QString::fromStdString(topic + ":\n" + message + "\n");
     }
 
-    // Schreibe die gesammelten Nachrichten in eine Datei
+    // Write the collected messages to a file
     QFile file("/catkin_ws/output.txt");
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
@@ -47,13 +51,45 @@ void Ai_Window::sendRequest() {
         file.close();
     }
 
-    // Setze eine kurze Nachricht oder Bestätigung in das Textfeld
-    ui->label->setText("Nachrichten wurden in die Datei geschrieben.");
+    // Create the prompt
+    QString fullPrompt = createPrompt();
+    std::string response = ai_agent_.getResponse(fullPrompt.toStdString());
 
-    // Entferne den Code zum Erstellen und Senden einer ROS-Nachricht
-    // std_msgs::String msg;
-    // msg.data = text.toStdString();
-    // text_publisher_.publish(msg);
+    // Display the response in the label
+    ui->label->setText(QString::fromStdString(response));
+}
+
+QString Ai_Window::createPrompt() {
+    // Retrieve text from textEdit
+    QString mainPrompt = ui->textEdit->toPlainText();
+
+    // Get ROS topics and messages
+    std::vector<std::string> topics = collector_.getTopicNames();
+    QString rosInfo;
+
+    for (const auto& topic : topics) {
+        std::string message = collector_.getMessage(topic);
+        rosInfo += QString::fromStdString(topic + ":\n" + message + "\n");
+    }
+
+    // Read context_prompt.txt
+    QString helperPrompt;
+    QFile file("/catkin_ws/src/ai_plugin/src/context_prompt.txt");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&file);
+        helperPrompt = in.readAll();
+        file.close();
+    } else {
+        helperPrompt = "Failed to load context_prompt.txt";
+    }
+
+    // Combine all parts
+    QString fullPrompt = mainPrompt + "\n\n" + helperPrompt + "\n\n" + rosInfo;
+
+    // Print the whole prompt to the terminal
+    // qDebug() << fullPrompt;
+
+    return fullPrompt;
 }
 
 // Save user settings (e.g., text field content)

@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y qt5-default
 # Install nano
 RUN apt-get update && apt-get install -y nano
 
-RUN apt-get install libjsoncpp-dev
+# Install nlohmann/json
+RUN apt-get update && apt-get install -y nlohmann-json3-dev
 
 WORKDIR /catkin_ws
 RUN mkdir -p src

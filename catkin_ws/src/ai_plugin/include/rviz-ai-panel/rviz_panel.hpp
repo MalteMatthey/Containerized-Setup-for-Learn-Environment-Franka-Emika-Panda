@@ -8,6 +8,7 @@
 #include <QPushButton>
 #include <QObject>
 #include "rviz-ai-panel/topic_collector.hpp"
+#include "rviz-ai-panel/ai_agent.hpp"
 
 /** 
  *  Include header generated from the UI file.
@@ -40,10 +41,13 @@ private:
     Ui::Ai_Window *ui;                   // Pointer to UI elements
     ros::NodeHandle nh_;                 // ROS NodeHandle
     ros::Publisher text_publisher_;      // ROS Publisher for text messages
-    TopicCollector collector_;
+    TopicCollector collector_;           // TopicCollector object to collect messages
+    AiAgent ai_agent_;                   // AiAgent object to interact with AI model
+    QString createPrompt(); // Helper method to create the prompt
 
 private Q_SLOTS:
     void sendRequest();  // Slot to handle button click for sending requests
+
 };
 
 #endif // AI_WINDOW_H
