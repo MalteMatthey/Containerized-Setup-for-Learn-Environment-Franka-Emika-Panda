@@ -1,3 +1,3 @@
 #!/bin/sh
-cd "$(dirname "$0")/.devcontainer"
-sudo docker build -t container-ros-noetic-moveit-panda .
+cd "$(dirname "$0")"
+sudo docker build -f .devcontainer/Dockerfile -t container-ros-noetic-moveit-panda .
