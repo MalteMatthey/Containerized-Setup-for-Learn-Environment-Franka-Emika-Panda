@@ -2,7 +2,7 @@
 
   <class type="Ai_Window" base_class_type="rviz::Panel">
     <description>
-      An ai-chat panel to implement an AI natively into RViz.
+      An ai-chat panel to implement an ai natively into RViz.
     </description>
   </class>
 
