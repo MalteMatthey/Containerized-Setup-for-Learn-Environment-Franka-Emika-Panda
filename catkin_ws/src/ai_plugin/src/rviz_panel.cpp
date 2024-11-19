@@ -36,7 +36,7 @@ void Ai_Window::sendRequest() {
 
     for (const auto& topic : topics) {
         std::string message = collector_.getMessage(topic);
-        all_messages += QString::fromStdString(topic + ": " + message + "\n");
+        all_messages += QString::fromStdString(topic + ":\n" + message + "\n");
     }
 
     // Schreibe die gesammelten Nachrichten in eine Datei
