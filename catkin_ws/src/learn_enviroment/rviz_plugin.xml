@@ -1,6 +1,6 @@
-<library path="lib/liblearn_env">
+<library path="lib/liblearn_panel">
 
-  <class type="Learn_enviroment" base_class_type="rviz::Panel">
+  <class type="Learn_Window" base_class_type="rviz::Panel">
     <description>
       An learn enviroment panel.
     </description>
