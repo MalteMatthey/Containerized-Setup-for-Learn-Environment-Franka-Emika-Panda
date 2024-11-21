@@ -8,6 +8,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   rviz
+  moveit_commander
+  moveit_msgs
+  geometry_msgs
   pluginlib
   std_msgs
   topic_tools

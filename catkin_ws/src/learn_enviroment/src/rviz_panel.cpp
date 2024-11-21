@@ -33,7 +33,12 @@ void Learn_Window::onExecuteButtonClicked() {
     }
 
     ROS_INFO("Starting script: %s", scriptPath.toStdString().c_str());
-    process->start("python3", QStringList() << scriptPath);
+
+    std::string command = "python3 " + scriptPath.toStdString();
+    int result = std::system(command.c_str());
+    if (result != 0) {
+        ROS_ERROR("Failed to execute script: %s", scriptPath.toStdString().c_str());
+    }
 }
 
 PLUGINLIB_EXPORT_CLASS(Learn_Window, rviz::Panel)
