@@ -28,7 +28,7 @@ include_directories(
 )
 
 catkin_install_python(PROGRAMS
-  src/exercise_1.py
+  tasks/exercise_1.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

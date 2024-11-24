@@ -27,7 +27,7 @@ void Learn_Window::save(rviz::Config config) const {
 }
 
 void Learn_Window::onExecuteButtonClicked() {
-    QString scriptPath = "/catkin_ws/src/learn_enviroment/src/exercise_1.py";
+    QString scriptPath = "/catkin_ws/src/learn_enviroment/tasks/exercise_1.py";
 
     if (!QFile::exists(scriptPath)) {
         ROS_INFO("File not found: %s", scriptPath.toStdString().c_str());

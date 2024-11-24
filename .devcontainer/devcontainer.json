@@ -4,7 +4,7 @@
 	"name": "ROSDockerNoetic",
 	"dockerComposeFile": "./docker-compose.yml",
 	"service": "roscontainer",
-	"workspaceFolder": "/workspace",
+	"workspaceFolder": "/workspace/catkin_ws/src/learn_enviroment/tasks",
 	"forwardPorts": [6080],
 	"extensions": [
 		"yhpnoraa.beauty",
