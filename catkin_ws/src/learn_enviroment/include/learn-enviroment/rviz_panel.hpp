@@ -28,6 +28,7 @@ public:
 
 public Q_SLOTS:
     void onExecuteButtonClicked();            // Slot for button click
+    void checkResult();
 
 private:
     Ui::Learn_Window *ui;                // Pointer to UI elements

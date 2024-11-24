@@ -49,6 +49,9 @@ def exercise0():
     # execute the planned motion
     group.go(wait=True)
 
+    current_position = group.get_current_pose().pose
+    rospy.loginfo("Current Pose: {}".format(current_position))
+
     # delete the ros node
     rospy.signal_shutdown("Task completed")
     roscpp_shutdown()
