@@ -12,6 +12,10 @@ Learn_Window::Learn_Window(QWidget *parent)
     : rviz::Panel(parent), ui(new Ui::Learn_Window), process(new QProcess(this)) {
         ui ->setupUi(this);
         connect(ui->executeButton, SIGNAL(clicked()), this, SLOT(onExecuteButtonClicked()));
+
+        // Set use_sim_time parameter to true
+        ros::NodeHandle nh("~");
+        nh.setParam("/use_sim_time", true);
     }
 
 Learn_Window::~Learn_Window() {
@@ -51,11 +55,9 @@ void Learn_Window::onExecuteButtonClicked() {
 void Learn_Window::checkResult() {
     ROS_INFO("Checking result");
 
-    
-    ros::NodeHandle nh;
-
     // Create a MoveGroupInterface object for the Panda arm
     moveit::planning_interface::MoveGroupInterface move_group("panda_arm");
+    move_group.setPlanningTime(10.0);
 
     geometry_msgs::Pose target_pose;
     target_pose.position.x = 0.5;
@@ -66,26 +68,13 @@ void Learn_Window::checkResult() {
     target_pose.orientation.z = 0.0;
     target_pose.orientation.w = 1.0;
     
-    geometry_msgs::Pose current_pose;
-
-    bool success = false;
-    for (int i = 0; i < 5; ++i) {
-        try {
-            current_pose = move_group.getCurrentPose().pose;
-            success = true;
-            break;
-        } catch (const std::runtime_error& e) {
-            ROS_WARN("Failed to fetch current robot state, retrying...");
-            ros::Duration(1.0).sleep();
-        }
-    }
-
-    if (!success) {
-        ROS_ERROR("Failed to fetch current robot state after multiple attempts");
-        return;
-    }
+    geometry_msgs::Pose current_pose = move_group.getCurrentPose().pose;
 
     ROS_INFO("got current position");
+
+    // Log the current position and orientation
+    ROS_INFO("Current position: x=%f, y=%f, z=%f", current_pose.position.x, current_pose.position.y, current_pose.position.z);
+    ROS_INFO("Current orientation: x=%f, y=%f, z=%f, w=%f", current_pose.orientation.x, current_pose.orientation.y, current_pose.orientation.z, current_pose.orientation.w);
 
     double tolerance = 0.01;
 
