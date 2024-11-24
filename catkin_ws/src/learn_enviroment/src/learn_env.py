@@ -46,26 +46,13 @@ def exercise0():
     # sets the target pose
     group.set_pose_target(target_pose)
 
-    # Plan the motion (but do not execute it)
-    plan = group.plan()
-
-    # create a message that would be published to the rviz
-    display_trajectory = DisplayTrajectory()
-
-    # set the start of the trajectory to the current state of the robot
-    display_trajectory.trajectory_start = group.get_current_state()
-
-    # append the wanted trajectory to the message
-    display_trajectory.trajectory.append(plan[1])
-
-    rospy.loginfo("publish trajectory")
-
-    # publish the message to the rviz 
-    display_trajectory_publisher.publish(display_trajectory)
+    # execute the planned motion
+    group.go(wait=True)
 
     # delete the ros node
     rospy.signal_shutdown("Task completed")
     roscpp_shutdown()
-
+    
+    
 if __name__ == '__main__':
     exercise0()
