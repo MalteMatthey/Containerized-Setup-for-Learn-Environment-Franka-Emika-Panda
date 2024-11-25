@@ -2,7 +2,7 @@
 
   <class type="Learn_Window" base_class_type="rviz::Panel">
     <description>
-      An learn enviroment panel.
+      An learn environment panel.
     </description>
   </class>
 
