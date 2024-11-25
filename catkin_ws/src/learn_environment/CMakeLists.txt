@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(learn-enviroment)
+project(learn-environment)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -34,19 +34,9 @@ catkin_install_python(PROGRAMS
 
 set(CMAKE_AUTOMOC ON)
 
-## This plugin includes Qt widgets, so we must include Qt.
-## We'll use the version that rviz used so they are compatible.
-if(rviz_QT_VERSION VERSION_LESS "5")
-  message(STATUS "Using Qt4 based on the rviz_QT_VERSION: ${rviz_QT_VERSION}")
-  find_package(Qt4 ${rviz_QT_VERSION} EXACT REQUIRED QtCore QtGui)
-  ## pull in all required include dirs, define QT_LIBRARIES, etc.
-  include(${QT_USE_FILE})
-else()
-  message(STATUS "Using Qt5 based on the rviz_QT_VERSION: ${rviz_QT_VERSION}")
-  find_package(Qt5 ${rviz_QT_VERSION} EXACT REQUIRED Core Widgets)
-  ## make target_link_libraries(${QT_LIBRARIES}) pull in all required dependencies
-  set(QT_LIBRARIES Qt5::Widgets)
-endif()
+## Include Qt libraries, only compatible with RViz using Qt5
+find_package(Qt5 ${rviz_QT_VERSION} EXACT REQUIRED Core Widgets)
+set(QT_LIBRARIES Qt5::Widgets)
 
 add_definitions(-DQT_NO_KEYWORDS)
 

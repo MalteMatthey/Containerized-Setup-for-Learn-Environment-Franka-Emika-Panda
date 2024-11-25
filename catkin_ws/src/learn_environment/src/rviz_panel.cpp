@@ -1,4 +1,4 @@
-#include "learn-enviroment/rviz_panel.hpp"
+#include "learn-environment/rviz_panel.hpp"
 #include <pluginlib/class_list_macros.hpp>
 #include <QProcess>
 #include <QFile>
@@ -35,7 +35,7 @@ void Learn_Window::onExecuteButtonClicked() {
 
     ROS_INFO("Current positions: x=%f, y=%f, z=%f", current_pose.position.x, current_pose.position.y, current_pose.position.z);
 
-    QString scriptPath = "/catkin_ws/src/learn_enviroment/tasks/exercise_1.py";
+    QString scriptPath = "/catkin_ws/src/learn_environment/tasks/exercise_1.py";
 
     if (!QFile::exists(scriptPath)) {
         ROS_INFO("File not found: %s", scriptPath.toStdString().c_str());
