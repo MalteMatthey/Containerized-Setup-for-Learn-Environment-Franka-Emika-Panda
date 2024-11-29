@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y nano
 # Install nlohmann/json
 RUN apt-get update && apt-get install -y nlohmann-json3-dev
 
+RUN pip3 install nbformat nbconvert
+
 WORKDIR /catkin_ws
 RUN mkdir -p src
 
