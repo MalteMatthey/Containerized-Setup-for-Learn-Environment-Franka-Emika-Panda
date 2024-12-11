@@ -4,7 +4,7 @@
 	"name": "ROSDockerNoetic",
 	"dockerComposeFile": "./docker-compose.yml",
 	"service": "roscontainer",
-	"workspaceFolder": "/workspace/catkin_ws/src/learn_environment/tasks",
+	"workspaceFolder": "/catkin_ws/src/learn_environment/tasks",
 	"forwardPorts": [6080],
 	"extensions": [
 		"yhpnoraa.beauty",
@@ -15,7 +15,8 @@
 		"donjayamanne.python-extension-pack",
 		"ms-iot.vscode-ros",
 		"ms-vscode.cmake-tools",
-		"ms-python.python"
+		"ms-python.python",
+		"-ms-toolsai.vscode-jupyter-cell-tags"
 	],
 
 	"features": {
