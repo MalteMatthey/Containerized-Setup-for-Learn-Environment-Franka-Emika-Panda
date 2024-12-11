@@ -49,6 +49,21 @@
         "ctime": "cpp",
         "iomanip": "cpp",
         "set": "cpp",
-        "iostream": "cpp"
-    }
+        "iostream": "cpp",
+        "chrono": "cpp",
+        "condition_variable": "cpp",
+        "cstring": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "ratio": "cpp",
+        "future": "cpp",
+        "mutex": "cpp",
+        "thread": "cpp",
+        "valarray": "cpp",
+        "variant": "cpp",
+        "qsharedpointer": "cpp",
+        "qdebug": "cpp",
+        "qbytearray": "cpp"
+    },
+    "cmake.ignoreCMakeListsMissing": true
 }
