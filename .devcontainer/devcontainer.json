@@ -6,18 +6,6 @@
 	"service": "roscontainer",
 	"workspaceFolder": "/catkin_ws/src/learn_environment/tasks",
 	"forwardPorts": [6080],
-	"extensions": [
-		"yhpnoraa.beauty",
-		"magicstack.magicpython",
-		"ms-python.vscode-pylance",
-		"ms-toolsai.jupyter",
-		"ms-toolsai.jupyter-keymap",
-		"donjayamanne.python-extension-pack",
-		"ms-iot.vscode-ros",
-		"ms-vscode.cmake-tools",
-		"ms-python.python",
-		"-ms-toolsai.vscode-jupyter-cell-tags"
-	],
 
 	"features": {
 		"git": "latest",
@@ -27,5 +15,29 @@
 			"webPort": "6080",
 			"vncPort": "5901"
 		}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"workbench.editorAssociations": {   
+					"*.md": "vscode.markdown.preview.editor"
+				}
+			},
+			"extensions": [
+				"yhpnoraa.beauty",
+				"magicstack.magicpython",
+				"ms-python.vscode-pylance",
+				"ms-toolsai.jupyter",
+				"ms-toolsai.jupyter-keymap",
+				"donjayamanne.python-extension-pack",
+				"ms-iot.vscode-ros",
+				"ms-vscode.cmake-tools",
+				"ms-python.python",
+
+				// remove to not show cell tags in editor
+				"-ms-toolsai.vscode-jupyter-cell-tags"
+			]
+		}
 	}
 }
+
