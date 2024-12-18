@@ -34,7 +34,7 @@
 				"ms-vscode.cmake-tools",
 				"ms-python.python",
 
-				// remove to not show cell tags in editor
+				// remove VS Code plugin to not show cell tags in editor
 				"-ms-toolsai.vscode-jupyter-cell-tags"
 			]
 		}
