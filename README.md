@@ -1,132 +1,243 @@
-# ROSNoeticStandardContainer
+# ROS Noetic Standard Container with Preinstalled Learn Environment Plugin
 
-This is a visual studio code development container with ros noetic installed to control a Franka Panda Robot in a simulation and real environment. 
-
-Install Visual studio code with the remote container extension, clone this repository and enjoy a container with everything for ROS and Panda installed. 
-
-## Version
-
-ROS: noetic
+> **⚠️ WARNING:** This is the README for setting up the container with all functionalities. For the Learn Environment Plugin itself, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) or for contributing to it the [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) files.
 
 
-Robots: 
- - Panda
-
- Features:
-
- - ROS Noetic
- - Ros für Franka Panda
- - MoveIt vorkompiliert
+This repository provides a Visual Studio Code development container with ROS Noetic installed to control a Franka Panda Robot in both simulation and real environments. It also has the Learn Environment plugin for RViz preinstalled so you can start learning how to work with the robot immediatly.
 
 
+## Features
+
+- ROS Noetic
+- Support for Franka Panda
+- Precompiled MoveIt
+- Preinstalled Learn Environment plugin for RViz
 
 ## Installation
 
-### local Windows installation
-1. [Visual Studio Code](https://code.visualstudio.com/docs/remote/containers)
-    
-    1.1. Install the DevContainer extension in VSC (ID: ms-vscode-remote.remote-containers)
-2. [WSL2](https://learn.microsoft.com/de-de/windows/wsl/install) (it needs wsl2 instead of 1)
-3. [Docker](https://docs.docker.com/desktop/install/windows-install/)
-    
-    (sometimes you have to install with `pip install docker-compose` [docker-compose](https://docs.docker.com/compose/) as well)
-    
-4. Create a fork of this repository.
-5. Clone the Repository in your WSL environment (`git clone ...`)
+When to Use Devcontainers:
 
-    5.1. You need to create a ssh key in your wsl (or linux) environment and copy this key to your git.ssc.kit.edu ssh-keys [Explanation](https://git.scc.kit.edu/help/user/ssh.md)
-6. Open the repository with `code .` in the repository folder.
-7. Use `ctrl + shift + p` *Dev-Containers: Open in Container* to open the container in a docker environment. You have now all the necessary Tools installed.
+**Benefits of Devcontainers:**
+- Easier setup
+- No worries about connecting the display due to Web Desktop Environment
 
-### on a linux computer (or the computer connected to the real robot)
+**Benefits of Not Using Devcontainers:**
+- Still very easy setup
+- Less overhead
+- Faster build
+- Display forwarding already implemented
+- Easier to enable GPU support on non-NVIDIA graphic cards
 
-1. [Visual Studio Code](https://code.visualstudio.com/docs/remote/containers)
-2. [Docker](https://docs.docker.com/engine/install/ubuntu/)
-3. Create a fork of this repository.
-4. Clone the Repository in your environment `git clone ...`
-    
-    4.1. You need to create a ssh key in your wsl (or linux) environment and copy this key to your git.ssc.kit.edu ssh-keys [Explanation](https://git.scc.kit.edu/help/user/ssh.md)
-5. Open the repository with `code .` in the repository folder.
-6. Use `ctrl + shift + p` *Dev-Containers: Open in Container* to open the container in a docker environment. You have now all the necessary Tools installed.
+### Local Windows Installation
 
+<details>
+<summary>Using Devcontainer</summary>
 
-### Functions:
+1. Install [Visual Studio Code](https://code.visualstudio.com/)
+    - Install the DevContainer extension (ID: ms-vscode-remote.remote-containers)
+2. Install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install)
+3. Install [Docker](https://docs.docker.com/desktop/install/windows-install/)
+    - You may need to install [docker-compose](https://docs.docker.com/compose/) with `pip install docker-compose`
+4. Fork this repository.
+5. Clone the repository in your WSL environment:
+    ```bash
+    git clone <repository-url>
+    ```
+    - Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
+6. Open the repository folder in VS Code:
+    ```bash
+    code .
+    ```
+7. Open the container in a Docker environment:
+    ```bash
+    ctrl + shift + p
+    ```
+    Select *Dev-Containers: Open in Container*. All necessary tools will be installed.
 
-#### Desktop Environment
-Go to: [http://localhost:6080/](http://localhost:6080/) in your browser. The Password: "vscode" opens a desktop environment of the container in your browser. All windows you open in the container are shown here.
+</details>
 
-<img src="/screenshots/webdesktopenvironment.png"  width="300" height="300">
+<details>
+<summary>Without Devcontainer</summary>
 
+1. Install [Visual Studio Code](https://code.visualstudio.com/)
+    - Install the Docker extension (ID: ms-azuretools.vscode-docker)
+2. Install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install)
+3. Install [Docker](https://docs.docker.com/desktop/install/windows-install/)
+    - You may need to install [docker-compose](https://docs.docker.com/compose/) with `pip install docker-compose`
+4. Fork this repository.
+5. Clone the repository in your WSL environment:
+    ```bash
+    git clone <repository-url>
+    ```
+    - Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
+6. Open the repository folder in VS Code:
+    ```bash
+    code .
+    ```
+7. Build the container:
+    ```bash
+    ./build.ps1
+    ```
+8. Start the container:
+    ```bash
+    ./run.ps1
+    ```
+9. Attach VS Code to the container:
+    - Click on the Docker extension (left sidebar in VS Code).
+    - Find the running container and click on `Attach VS Code`. This opens a new VS Code window inside the container.
+10. Make the display available for the container:
+    - Install [VcXsrv](https://sourceforge.net/projects/vcxsrv/). 
+    - Start the `XLaunch` Application (e.g. from Windows Start Menu)
+    - Select `Multiple windows` and set `Display number` to `0`. Click `next`.
+    - Select `Start no client`. Click `next`.
+    - Also check the `Disable accesss control` box. Click `next` and `finish`.
 
-#### Control the real Panda
-Remember to activate the panda FCI in the DESK environment with "Activate FCI" and the robot leds should be blue.
+</details>
 
-##### MoveIt Position Controller
-execute: 
+### Local Linux Installation
 
-    roslaunch panda_moveit_config franka_control.launch robot_ip:=172.16.0.2
+<details>
+<summary>Using Devcontainer</summary>
 
-This opens the control node of the panda. You can now use the main functions of the panda with access to moveit and the ability to send the robot to x,y,z coordinates. In the [desktop environment](#### Desktop Environment) you can use RVIZ and MoveIT to send the robot to coordinates.
+1. Install [Visual Studio Code](https://code.visualstudio.com/)
+2. Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+3. Fork this repository.
+4. Clone the repository in your environment:
+    ```bash
+    git clone <repository-url>
+    ```
+    - Create an SSH key in your environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
+5. Open the repository folder in VS Code:
+    ```bash
+    code .
+    ```
+6. Open the container in a Docker environment:
+    ```bash
+    ctrl + shift + p
+    ```
+    Select *Dev-Containers: Open in Container*. All necessary tools will be installed.
 
-If you move the robot with your hand or the robot was reaching a difficult edge position and won't move further you can recover the robot with: 
+</details>
 
+<details>
+<summary>Without Devcontainer</summary>
 
-    rostopic pub -1 /franka_control/error_recovery/goal franka_msgs/ErrorRecoveryActionGoal "{}"
+1. Install [Visual Studio Code](https://code.visualstudio.com/)
+    - Install the Docker extension (ID: ms-azuretools.vscode-docker)
+2. Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+    - You may need to install [docker-compose](https://docs.docker.com/compose/) with `pip install docker-compose`
+3. Fork this repository.
+4. Clone the repository in your environment:
+    ```bash
+    git clone <repository-url>
+    ```
+    - Create an SSH key in your environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
+5. Open the repository folder in VS Code:
+    ```bash
+    code .
+    ```
+6. Build the container:
+    ```bash
+    ./build.sh
+    ```
+7. Start the container:
+    ```bash
+    ./run.sh
+    ```
+8. Attach VS Code to the container:
+    - Click on the Docker extension (left sidebar in VS Code).
+    - Find the running container and click on `Attach VS Code`. This opens a new VS Code window inside the container.
 
+</details>
 
-##### cartesian impedance controller
+## Functions
 
+### Desktop Environment (Devcontainer setup only)
 
-    roslaunch franka_example_controllers cartesian_impedance_example_controller.launch robot_ip:=172.16.0.2
+Access the desktop environment of the container in your browser at [http://localhost:6080/](http://localhost:6080/). All windows you open in the container will be shown here.
 
-opens the robot control with RVIZ and a cartesian impedance controller. You can move the robot in RVIZ in the [desktop environment](#### Desktop Environment). 
+### Start the Learn Environment tutorial 
 
-#### Panda Gazebo (Simulation)
+How to get started with the plugin is described [here](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md)
 
-##### cartesian impedance controller
+### Control the Real Panda
 
+Activate the Panda FCI in the DESK environment with "Activate FCI". The robot LEDs should turn blue.
 
-    roslaunch franka_gazebo panda.launch x:=-0.5 \
-    world:=$(rospack find franka_gazebo)/world/stone.sdf \
-    controller:=cartesian_impedance_example_controller \
-    rviz:=true
+#### MoveIt Position Controller
 
-opens RVIZ and gazebo with a simulation of the panda robot with a cartesian impedance controller. All ROSTopics are loaded to control the virtual robot.
+To control the Panda with MoveIt, execute:
+```bash
+roslaunch panda_moveit_config franka_control.launch robot_ip:=172.16.0.2
+```
+You can use RVIZ and MoveIt to send the robot to coordinates in the desktop environment.
 
-![Gazebo RVIZ Sim](/screenshots/gazebocartesianrvizsim.png "Gazebo RVIZ Sim")
+If the robot gets stuck or you move it by hand, recover it with:
+```bash
+rostopic pub -1 /franka_control/error_recovery/goal franka_msgs/ErrorRecoveryActionGoal "{}"
+```
 
-##### moveit position controller
+#### Cartesian Impedance Controller
 
-    roslaunch panda_moveit_config demo_gazebo.launch rviz_tutorial:=true
+To control the Panda with a Cartesian impedance controller, execute:
+```bash
+roslaunch franka_example_controllers cartesian_impedance_example_controller.launch robot_ip:=172.16.0.2
+```
+You can move the robot in RVIZ in the desktop environment.
 
-opens RVIZ and gazebo with a simulation of the panda robot with a moveit position controller. You can now add a motion planner in RVIZ if you want. But all move_group topics to control the robot are now started.
+### Panda Gazebo (Simulation)
 
+#### Cartesian Impedance Controller
 
-### Create a own package/node: 
+To simulate the Panda with a Cartesian impedance controller, execute:
+```bash
+roslaunch franka_gazebo panda.launch x:=-0.5 \
+world:=$(rospack find franka_gazebo)/world/stone.sdf \
+controller:=cartesian_impedance_example_controller \
+rviz:=true
+```
+This opens RVIZ and Gazebo with a simulation of the Panda robot.
 
-to create a own ROS Package you create a catkin package in /workspace/catkin_ws/src. You can also clone another ROS package in and work with this. [create a ROS Package](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
+![Gazebo RVIZ Sim](/screenshots/gazebocartesianrvizsim.png)
 
-You compile the workspace With `catkin_make` in /workspace/catkin_ws. To use the compiled functions source the workspace setup.bash with `source /workspace/catkin_ws/devel/setup.bash`.
+#### MoveIt Position Controller
 
+To simulate the Panda with a MoveIt position controller, execute:
+```bash
+roslaunch panda_moveit_config demo_gazebo.launch rviz_tutorial:=true
+```
+This opens RVIZ and Gazebo with a simulation of the Panda robot. You can add a motion planner in RVIZ if needed.
 
-## Errorhandling:
+### Create Your Own Package/Node
 
-### problems while cloning the development container in a remote pc
-try if you can clone it in another folder. 
+To create your own ROS package, create a catkin package in `/workspace/catkin_ws/src`. You can also clone another ROS package and work with it. [Create a ROS Package](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)
 
-### problem container doesn't start on linux (MIT-Magic Cookie)
-Activating cpu-virtualization might help. 
+Compile the workspace with `catkin_make` in `/workspace/catkin_ws`. To use the compiled functions, source the workspace setup.bash with:
+```bash
+source /workspace/catkin_ws/devel/setup.bash
+```
 
-### GPU not found
-You can give the container GPU ability with
+## Error Handling
 
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: ["gpu"]
+### Problems Cloning the Development Container on a Remote PC
 
+Try cloning the repository in another folder.
 
-### No realtime kernel
+### Container Doesn't Start on Linux (MIT-Magic Cookie)
 
-To work the franka panda needs a realtime kernel. Either you already have one installed and need to reboot to choose a kernel in the advanced settings. If you don't have a real time kernel you need to install one [explanation](https://frankaemika.github.io/docs/installation_linux.html#setting-up-the-real-time-kernel)
+Activating CPU virtualization might help.
+
+### GPU Not Found
+
+Enable GPU support for the container with:
+```yaml
+deploy:
+  resources:
+    reservations:
+      devices:
+        - capabilities: ["gpu"]
+```
+
+### No Realtime Kernel
+
+The Franka Panda requires a realtime kernel. If you don't have one, install it following [this explanation](https://frankaemika.github.io/docs/installation_linux.html#setting-up-the-real-time-kernel). Reboot and choose the realtime kernel in the advanced settings.
