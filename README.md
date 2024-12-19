@@ -1,6 +1,6 @@
 # ROS Noetic Standard Container with Preinstalled Learn Environment Plugin
 
-> **⚠️ WARNING:** This is the README for setting up the container with all functionalities. For the Learn Environment Plugin itself, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) or for contributing to it the [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) files.
+> **⚠️ WARNING:** This README is for setting up the container with all functionalities. For the Learn Environment Plugin, follow the instructions in this README first. Then, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) for installation details or [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) for contribution guidelines.
 
 
 This repository provides a Visual Studio Code development container with ROS Noetic installed to control a Franka Panda Robot in both simulation and real environments. It also has the Learn Environment plugin for RViz preinstalled so you can start learning how to work with the robot immediatly.
@@ -160,6 +160,8 @@ Access the desktop environment of the container in your browser at [http://local
 
 How to get started with the plugin is described [here](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md)
 
+![Gazebo RVIZ Sim](/screenshots/plugin.png)
+
 ### Control the Real Panda
 
 Activate the Panda FCI in the DESK environment with "Activate FCI". The robot LEDs should turn blue.
@@ -237,6 +239,8 @@ deploy:
       devices:
         - capabilities: ["gpu"]
 ```
+
+Just uncomment these lines in `docker-compose.yml`.
 
 ### No Realtime Kernel
 
