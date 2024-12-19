@@ -1,6 +1,6 @@
 # ROS Noetic Standard Container with Preinstalled Learn Environment Plugin
 
-> **⚠️ WARNING:** This README is for setting up the container with all functionalities. For the Learn Environment Plugin, follow the instructions in this README first. Then, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) for installation details or [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) for contribution guidelines.
+> **⚠️ WARNING:** This README is for setting up the container with all functionalities. For the Learn Environment Plugin, follow the instructions in this README first. Then, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) for starting the turotial or [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) for contribution guidelines (creating new tasks & extending the plugin).
 
 
 This repository provides a Visual Studio Code development container with ROS Noetic installed to control a Franka Panda Robot in both simulation and real environments. It also has the Learn Environment plugin for RViz preinstalled so you can start learning how to work with the robot immediatly.
@@ -44,15 +44,12 @@ When to Use Devcontainers:
     git clone <repository-url>
     ```
     - Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
-6. Open the repository folder in VS Code:
-    ```bash
-    code .
-    ```
+6. Open the repository folder in VS Code.
 7. Open the container in a Docker environment:
     ```bash
     ctrl + shift + p
     ```
-    Select *Dev-Containers: Open in Container*. All necessary tools will be installed.
+    Select `Dev-Containers: Open in Container`. All necessary tools will be installed.
 
 </details>
 
@@ -70,10 +67,7 @@ When to Use Devcontainers:
     git clone <repository-url>
     ```
     - Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
-6. Open the repository folder in VS Code:
-    ```bash
-    code .
-    ```
+6. Open the repository folder in VS Code.
 7. Build the container:
     ```bash
     ./build.ps1
@@ -107,15 +101,12 @@ When to Use Devcontainers:
     git clone <repository-url>
     ```
     - Create an SSH key in your environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
-5. Open the repository folder in VS Code:
-    ```bash
-    code .
-    ```
+5. Open the repository folder in VS Code.
 6. Open the container in a Docker environment:
     ```bash
     ctrl + shift + p
     ```
-    Select *Dev-Containers: Open in Container*. All necessary tools will be installed.
+    Select `Dev-Containers: Open in Container`. All necessary tools will be installed.
 
 </details>
 
@@ -132,10 +123,7 @@ When to Use Devcontainers:
     git clone <repository-url>
     ```
     - Create an SSH key in your environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
-5. Open the repository folder in VS Code:
-    ```bash
-    code .
-    ```
+5. Open the repository folder in VS Code.
 6. Build the container:
     ```bash
     ./build.sh
