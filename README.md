@@ -146,7 +146,7 @@ Access the desktop environment of the container in your browser at [http://local
 
 ### Start the Learn Environment tutorial 
 
-How to get started with the plugin is described [here](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md)
+To get started with the plugin, follow the instructions provided [here](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md). If VS Code does not automatically open the `/catkin_ws/src/learn_environment/tasks` folder, please navigate to it manually. This is the starting point of the tutorial.
 
 ![Gazebo RVIZ Sim](/screenshots/plugin.png)
 
