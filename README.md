@@ -1,6 +1,6 @@
 # ROS Noetic Standard Container with Preinstalled Learn Environment Plugin
 
-> **⚠️ WARNING:** This README is for setting up the container with all functionalities. For the Learn Environment Plugin, follow the instructions in this README first. Then, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) for starting the turotial or [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) for contribution guidelines (creating new tasks & extending the plugin).
+> **⚠️ WARNING:** This README is for setting up the container with all functionalities. For the Learn Environment Plugin, follow the instructions in this README first. Then, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) for starting the tutorial or [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) for contribution guidelines (creating new tasks & extending the plugin).
 
 
 This repository provides a Visual Studio Code development container with ROS Noetic installed to control a Franka Panda Robot in both simulation and real environments. It also has the Learn Environment plugin for RViz preinstalled so you can start learning how to work with the robot immediatly.
@@ -148,7 +148,7 @@ Access the desktop environment of the container in your browser at [http://local
 
 To get started with the plugin, follow the instructions provided [here](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md). If VS Code does not automatically open the `/catkin_ws/src/learn_environment/tasks` folder, please navigate to it manually. This is the starting point of the tutorial.
 
-![Gazebo RVIZ Sim](/screenshots/plugin.png)
+![Learn Environment](/screenshots/plugin.png)
 
 ### Control the Real Panda
 
