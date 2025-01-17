@@ -1,2 +1,0 @@
-print("NO NEED TO EVALUATE THIS SCRIPT")
-print(True)
