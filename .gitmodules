@@ -1,0 +1,3 @@
+[submodule "catkin_ws/src/learn_environment"]
+	path = catkin_ws/src/learn_environment
+	url = git@gitlab.kit.edu:kit/aifb/BIS/lehre/seminare/programmieren_3/202425/gruppe-3/learn-environment-franka-emika-panda.git
