@@ -19,9 +19,15 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
+				"files.autoSave": "afterDelay",
 				"workbench.editorAssociations": {   
 					"*.md": "vscode.markdown.preview.editor"
 				}
+			},
+			"codespaces": {
+				"openFiles": [
+					"GETTING_STARTED.md"
+				]
 			},
 			"extensions": [
 				"yhpnoraa.beauty",
