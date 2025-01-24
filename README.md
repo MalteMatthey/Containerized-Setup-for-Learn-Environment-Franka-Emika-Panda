@@ -2,7 +2,7 @@
 
 > **⚠️ WARNING:** This README is for setting up the container with all functionalities. For the Learn Environment Plugin, follow the instructions in this README first. After the installation, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) for starting the tutorial or [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) for contribution guidelines (creating new tasks & extending the plugin) in the [plugin's repository](https://gitlab.kit.edu/kit/aifb/BIS/lehre/seminare/programmieren_3/202425/gruppe-3/learn-environment-franka-emika-panda). 
 
-This repository provides a Visual Studio Code development container with ROS Noetic installed to control a Franka Panda Robot in both simulation and real environments. It also has the Learn Environment plugin for RViz preinstalled and is optimised so you can start learning how to work with the robot immediatly.
+This repository provides a Visual Studio Code development container with ROS Noetic installed to control a Franka Panda Robot in both simulation and real environments. It also has the Learn Environment plugin for RViz preinstalled and is optimized so you can start learning how to work with the robot immediately.
 
 
 ## Features
@@ -14,13 +14,13 @@ This repository provides a Visual Studio Code development container with ROS Noe
 
 ## Installation
 
-When to Use Devcontainers:
+When to use which setup:
 
-**Benefits of Devcontainers:**
+**Benefits of Dev Containers:**
 - Easier setup
 - No worries about connecting the display due to Web Desktop Environment
 
-**Benefits of Not Using Devcontainers:**
+**Benefits of using Docker and attaching VS Code afterwards:**
 - Still very easy setup
 - Less overhead
 - Faster build
@@ -31,7 +31,7 @@ When to Use Devcontainers:
 ### Local Windows Installation
 
 <details>
-<summary>Using Devcontainer</summary>
+<summary>Using Dev Container</summary>
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/)
     - Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension (ID: ms-vscode-remote.remote-containers)
@@ -53,7 +53,7 @@ When to Use Devcontainers:
 </details>
 
 <details>
-<summary>Without Devcontainer</summary>
+<summary>Docker setup & attach VS Code</summary>
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/)
     - Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) (ID: ms-azuretools.vscode-docker)
@@ -83,14 +83,14 @@ When to Use Devcontainers:
     - Start the `XLaunch` Application (e.g. from Windows Start Menu)
     - Select `Multiple windows` and set `Display number` to `0`. Click `next`.
     - Select `Start no client`. Click `next`.
-    - Also check the `Disable accesss control` box. Click `next` and `finish`.
+    - Also check the `Disable access control` box. Click `next` and `finish`.
 
 </details>
 
 ### Local Linux Installation
 
 <details>
-<summary>Using Devcontainer</summary>
+<summary>Using Dev Container</summary>
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/)
     - Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension (ID: ms-vscode-remote.remote-containers)
@@ -110,7 +110,7 @@ When to Use Devcontainers:
 </details>
 
 <details>
-<summary>Without Devcontainer</summary>
+<summary>Docker setup & attach VS Code</summary>
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/)
     - Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) (ID: ms-azuretools.vscode-docker)
@@ -139,7 +139,7 @@ When to Use Devcontainers:
 
 ## Functions
 
-### Desktop Environment (Devcontainer setup only)
+### Desktop Environment (Dev Container setup only)
 
 Access the desktop environment of the container in your browser at [http://localhost:6080/](http://localhost:6080/). All windows you open in the container will be shown here.
 
