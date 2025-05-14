@@ -1,6 +1,6 @@
 # ROS Noetic Standard Container with Preinstalled Learn Environment Plugin
 
-> **⚠️ WARNING:** This README is for setting up the container with all functionalities. For the Learn Environment Plugin, follow the instructions in this README first. After the installation, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) for starting the tutorial or [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) for contribution guidelines (creating new tasks & extending the plugin) in the [plugin's repository](https://gitlab.kit.edu/kit/aifb/BIS/lehre/seminare/programmieren_3/202425/gruppe-3/learn-environment-franka-emika-panda). 
+> **⚠️ WARNING:** This README is for setting up the container with all functionalities. For the Learn Environment Plugin, follow the instructions in this README first. After the installation, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) for starting the tutorial or [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) for contribution guidelines (creating new tasks & extending the plugin) in the [plugin's repository](https://gitlab.kit.edu/kit/aifb/BIS/kit-bis/robotik/ros-learning-platform/learn-environment-franka-emika-panda). 
 
 This repository provides a Visual Studio Code development container with ROS Noetic installed to control a Franka Panda Robot in both simulation and real environments. It also has the Learn Environment plugin for RViz preinstalled and is optimized so you can start learning how to work with the robot immediately.
 
@@ -41,7 +41,7 @@ When to use which setup:
 4. Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
 5. Clone the repository in your WSL environment:
     ```bash
-    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/lehre/seminare/programmieren_3/202425/gruppe-3/containerized-setup-learn-environment-franka-emika-panda.git
+    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/kit-bis/robotik/ros-learning-platform/containerized-setup-learn-environment-franka-emika-panda.git
     ```
 6. Open the repository folder in VS Code.
 7. Open the container in a Docker environment:
@@ -64,7 +64,7 @@ When to use which setup:
 4. Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
 5. Clone the repository in your WSL environment:
     ```bash
-    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/lehre/seminare/programmieren_3/202425/gruppe-3/containerized-setup-learn-environment-franka-emika-panda.git
+    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/kit-bis/robotik/ros-learning-platform/containerized-setup-learn-environment-franka-emika-panda.git
     ```
 6. Open the repository folder in VS Code.
 7. Build the container:
@@ -95,10 +95,10 @@ When to use which setup:
 1. Install [Visual Studio Code](https://code.visualstudio.com/)
     - Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension (ID: ms-vscode-remote.remote-containers)
 2. Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
-3. Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
+3. Create an SSH key and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
 4. Clone the repository in your environment:
     ```bash
-    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/lehre/seminare/programmieren_3/202425/gruppe-3/containerized-setup-learn-environment-franka-emika-panda.git
+    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/kit-bis/robotik/ros-learning-platform/containerized-setup-learn-environment-franka-emika-panda.git
     ```
 5. Open the repository folder in VS Code.
 6. Open the container in a Docker environment:
@@ -120,7 +120,7 @@ When to use which setup:
 3. Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
 4. Clone the repository in your environment:
     ```bash
-    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/lehre/seminare/programmieren_3/202425/gruppe-3/containerized-setup-learn-environment-franka-emika-panda.git
+    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/kit-bis/robotik/ros-learning-platform/containerized-setup-learn-environment-franka-emika-panda.git
     ```
 5. Open the repository folder in VS Code.
 6. Build the container:
