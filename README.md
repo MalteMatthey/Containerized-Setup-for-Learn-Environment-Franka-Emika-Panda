@@ -1,6 +1,6 @@
 # ROS Noetic Standard Container with Preinstalled Learn Environment Plugin
 
-> **⚠️ WARNING:** This README is for setting up the container with all functionalities. For the Learn Environment Plugin, follow the instructions in this README first. After the installation, refer to [GETTING_STARTED.md](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md) for starting the tutorial or [CONTRIBUTE.md](./catkin_ws/src/learn_environment/developer_docs/CONTRIBUTE.md) for contribution guidelines (creating new tasks & extending the plugin) in the [plugin's repository](https://gitlab.kit.edu/kit/aifb/BIS/kit-bis/robotik/ros-learning-platform/learn-environment-franka-emika-panda). 
+> **⚠️ WARNING:** This README is for setting up the container with all functionalities. For the Learn Environment Plugin, follow the instructions in this README first. After the installation, refer to [GETTING_STARTED.md](https://github.com/MalteMatthey/Learn-Environment-Franka-Emika-Panda/blob/main/tasks/GETTING_STARTED.md) for starting the tutorial or [CONTRIBUTE.md](https://github.com/MalteMatthey/Learn-Environment-Franka-Emika-Panda/blob/main/developer_docs/CONTRIBUTE.md) for contribution guidelines (creating new tasks & extending the plugin) in the [plugin's repository](https://github.com/MalteMatthey/Learn-Environment-Franka-Emika-Panda). 
 
 This repository provides a Visual Studio Code development container with ROS Noetic installed to control a Franka Panda Robot in both simulation and real environments. It also has the Learn Environment plugin for RViz preinstalled and is optimized so you can start learning how to work with the robot immediately.
 
@@ -38,67 +38,9 @@ When to use which setup:
 2. Install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install)
 3. Install [Docker](https://docs.docker.com/desktop/install/windows-install/)
     - You may need to install [docker-compose](https://docs.docker.com/compose/) with `pip install docker-compose`
-4. Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
-5. Clone the repository in your WSL environment:
+4. Clone the repository in your WSL environment:
     ```bash
-    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/kit-bis/robotik/ros-learning-platform/containerized-setup-learn-environment-franka-emika-panda.git
-    ```
-6. Open the repository folder in VS Code.
-7. Open the container in a Docker environment:
-    ```bash
-    ctrl + shift + p
-    ```
-    Select `Dev-Containers: Open in Container`. All necessary tools will be installed.
-
-</details>
-
-<details>
-<summary>Docker setup & attach VS Code</summary>
-
-1. Install [Visual Studio Code](https://code.visualstudio.com/)
-    - Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) (ID: ms-azuretools.vscode-docker)
-    - Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension (ID: ms-vscode-remote.remote-containers)
-2. Install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install)
-3. Install [Docker](https://docs.docker.com/desktop/install/windows-install/)
-    - You may need to install [docker-compose](https://docs.docker.com/compose/) with `pip install docker-compose`
-4. Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
-5. Clone the repository in your WSL environment:
-    ```bash
-    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/kit-bis/robotik/ros-learning-platform/containerized-setup-learn-environment-franka-emika-panda.git
-    ```
-6. Open the repository folder in VS Code.
-7. Build the container:
-    ```bash
-    ./build.ps1
-    ```
-8. Start the container:
-    ```bash
-    ./run.ps1
-    ```
-9. Attach VS Code to the container:
-    - Click on the Docker extension (left sidebar in VS Code).
-    - Find the running container, right-click on it, and select `Attach VS Code`. This will open a new VS Code window inside the container.
-10. Make the display available for the container:
-    - Install [VcXsrv](https://sourceforge.net/projects/vcxsrv/). 
-    - Start the `XLaunch` Application (e.g. from Windows Start Menu)
-    - Select `Multiple windows` and set `Display number` to `0`. Click `next`.
-    - Select `Start no client`. Click `next`.
-    - Also check the `Disable access control` box. Click `next` and `finish`.
-
-</details>
-
-### Local Linux Installation
-
-<details>
-<summary>Using Dev Container</summary>
-
-1. Install [Visual Studio Code](https://code.visualstudio.com/)
-    - Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension (ID: ms-vscode-remote.remote-containers)
-2. Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
-3. Create an SSH key and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
-4. Clone the repository in your environment:
-    ```bash
-    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/kit-bis/robotik/ros-learning-platform/containerized-setup-learn-environment-franka-emika-panda.git
+    git clone --recurse-submodules https://github.com/MalteMatthey/Containerized-Setup-for-Learn-Environment-Franka-Emika-Panda.git
     ```
 5. Open the repository folder in VS Code.
 6. Open the container in a Docker environment:
@@ -115,23 +57,77 @@ When to use which setup:
 1. Install [Visual Studio Code](https://code.visualstudio.com/)
     - Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) (ID: ms-azuretools.vscode-docker)
     - Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension (ID: ms-vscode-remote.remote-containers)
-2. Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+2. Install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install)
+3. Install [Docker](https://docs.docker.com/desktop/install/windows-install/)
     - You may need to install [docker-compose](https://docs.docker.com/compose/) with `pip install docker-compose`
-3. Create an SSH key in your WSL environment and add it to your git.ssc.kit.edu SSH keys. [Explanation](https://docs.gitlab.kit.edu/en/getting_started/#1-ssh-connection-using-ssh-keys)
-4. Clone the repository in your environment:
+4. Clone the repository in your WSL environment:
     ```bash
-    git clone --recurse-submodules git@gitlab.kit.edu:kit/aifb/BIS/kit-bis/robotik/ros-learning-platform/containerized-setup-learn-environment-franka-emika-panda.git
+    git clone --recurse-submodules https://github.com/MalteMatthey/Containerized-Setup-for-Learn-Environment-Franka-Emika-Panda.git
     ```
 5. Open the repository folder in VS Code.
 6. Build the container:
     ```bash
-    ./build.sh
+    ./build.ps1
     ```
 7. Start the container:
     ```bash
-    ./run.sh
+    ./run.ps1
     ```
 8. Attach VS Code to the container:
+    - Click on the Docker extension (left sidebar in VS Code).
+    - Find the running container, right-click on it, and select `Attach VS Code`. This will open a new VS Code window inside the container.
+9. Make the display available for the container:
+    - Install [VcXsrv](https://sourceforge.net/projects/vcxsrv/). 
+    - Start the `XLaunch` Application (e.g. from Windows Start Menu)
+    - Select `Multiple windows` and set `Display number` to `0`. Click `next`.
+    - Select `Start no client`. Click `next`.
+    - Also check the `Disable access control` box. Click `next` and `finish`.
+
+</details>
+
+### Local Linux Installation
+
+<details>
+<summary>Using Dev Container</summary>
+
+1. Install [Visual Studio Code](https://code.visualstudio.com/)
+    - Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension (ID: ms-vscode-remote.remote-containers)
+2. Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+3. Clone the repository in your environment:
+    ```bash
+    git clone --recurse-submodules https://github.com/MalteMatthey/Containerized-Setup-for-Learn-Environment-Franka-Emika-Panda.git
+    ```
+4. Open the repository folder in VS Code.
+5. Open the container in a Docker environment:
+    ```bash
+    ctrl + shift + p
+    ```
+    Select `Dev-Containers: Open in Container`. All necessary tools will be installed.
+
+</details>
+
+<details>
+<summary>Docker setup & attach VS Code</summary>
+
+1. Install [Visual Studio Code](https://code.visualstudio.com/)
+    - Install the [Docker extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker) (ID: ms-azuretools.vscode-docker)
+    - Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension (ID: ms-vscode-remote.remote-containers)
+2. Install [Docker](https://docs.docker.com/engine/install/ubuntu/)
+    - You may need to install [docker-compose](https://docs.docker.com/compose/) with `pip install docker-compose`
+3. Clone the repository in your environment:
+    ```bash
+    git clone --recurse-submodules https://github.com/MalteMatthey/Containerized-Setup-for-Learn-Environment-Franka-Emika-Panda.git
+    ```
+4. Open the repository folder in VS Code.
+5. Build the container:
+    ```bash
+    ./build.sh
+    ```
+6. Start the container:
+    ```bash
+    ./run.sh
+    ```
+7. Attach VS Code to the container:
     - Click on the Docker extension (left sidebar in VS Code).
     - Find the running container, right-click on it, and select `Attach VS Code`. This will open a new VS Code window inside the container.
 
@@ -145,7 +141,7 @@ Access the desktop environment of the container in your browser at [http://local
 
 ### Start the Learn Environment tutorial 
 
-To get started with the plugin, follow the instructions provided [here](./catkin_ws/src/learn_environment/tasks/GETTING_STARTED.md). If VS Code does not automatically open the `/catkin_ws/src/learn_environment/tasks` folder, please navigate to it manually. This is the starting point of the tutorial.
+To get started with the plugin, follow the instructions provided [here](https://github.com/MalteMatthey/Learn-Environment-Franka-Emika-Panda/blob/main/tasks/GETTING_STARTED.md). If VS Code does not automatically open the `/catkin_ws/src/learn_environment/tasks` folder, please navigate to it manually. This is the starting point of the tutorial.
 
 ![Learn Environment](/screenshots/plugin.png)
 
